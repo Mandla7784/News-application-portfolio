@@ -36,6 +36,7 @@
 /* main */
 main {
   display: flex;
+  flex-direction: column;
   gap: 50px;
   justify-content: space-between;
   padding: 0.5em 4em;
@@ -55,4 +56,24 @@ main .news {
 .describtion {
   width: 400px;
   background-color: black;
+}
+
+/* healines */
+.Headlines {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Headline-card {
+  width: 500px;
+  height: 100px;
+  display: flex;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.5em 1em;
+}
+
+.Headline-card img {
+  width: 200px;
+  height: 70px;
 }
