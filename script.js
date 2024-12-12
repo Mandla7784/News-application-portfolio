@@ -6,6 +6,8 @@ const url_base_path =
  * @param {*} path
  * this function makes an http request for news data
  * @returns {object} data
+ * so here we have a list of articles
+ * each article is an object with source and other props
  */
 async function getAllNewsArticles(path) {
   fetch(path)
@@ -13,9 +15,16 @@ async function getAllNewsArticles(path) {
     .then((data) => {
       console.log(data);
       const { articles } = data;
-      console.log(articles);
+      excraction(articles);
     })
     .catch((erro) => console.log(erro));
 }
 
-getAllNews(url_base_path);
+getAllNewsArticles(url_base_path);
+
+function excraction(listArticles) {
+  listArticles.forEach((articel) => {
+    const { source } = articel;
+    console.log(source);
+  });
+}
