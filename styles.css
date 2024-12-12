@@ -51,11 +51,11 @@ main .news {
 }
 .news-content {
   display: flex;
+  gap: 10px;
 }
 
 .describtion {
   width: 400px;
-  background-color: black;
 }
 
 /* healines */
