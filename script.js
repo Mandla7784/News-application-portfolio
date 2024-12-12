@@ -13,6 +13,7 @@ function getAllNewsArticles(path) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+      console.log("THIS IS RESPONSE/......", response.json());
       return response.json();
     })
     .then((data) => {

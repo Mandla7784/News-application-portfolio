@@ -14,7 +14,7 @@ axios
     return res.data; // Return data if response is successful
   })
   .then((data) => {
-    console.log("Fetched news data:", data);
+    console.log("Fetched news data:");
   })
   .catch((error) => {
     console.log("Oops results ....", error.message);
