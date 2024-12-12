@@ -54,25 +54,15 @@ function excraction(listArticles) {
     <div class="Headlines">
         <div class="Headline-card">
           <p>
-            According to an update from MEC for Finance and Economic Development
-            Lebogang M
+            ${description}
           </p>
           <img
-            src="https://media.coschedule.com/uploads/2021/04/34b6a943-ce73-4780-836e-89acf7db9529_14mission-a1.ready-articleLarge-v3.jpg?w=3840&q=75"
-            alt=""
+             src = ${urlToImage}
+            alt=${description}
           />
         </div>
-        <div class="Headline-card">
-          <p>
-            According to an update from MEC for Finance and Economic Development
-            Lebogang M
-          </p>
-          <img
-            src="https://media.coschedule.com/uploads/2021/04/34b6a943-ce73-4780-836e-89acf7db9529_14mission-a1.ready-articleLarge-v3.jpg?w=3840&q=75"
-            alt=""
-          />
-        </div>
-      </div>
+
+    </div>
     
     
     `;
