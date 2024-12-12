@@ -1,6 +1,6 @@
 const url_base_path =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=8f0e4148f524405c9aebb149ee25bed2";
-
+const main = document.querySelector("main");
 /**
  *
  * @param {*} path
@@ -23,8 +23,58 @@ async function getAllNewsArticles(path) {
 getAllNewsArticles(url_base_path);
 
 function excraction(listArticles) {
+  main.innerHTML += /*html*/ `
+
+   <div class="news">
+        <h1>Watch over 1000 of these news</h1>
+        <div class="news-content">
+          <img
+            style="width: 500px; height: 400px"
+            src="https://media.istockphoto.com/id/1369150014/vector/breaking-news-with-world-map-background-vector.jpg?s=612x612&w=0&k=20&c=9pR2-nDBhb7cOvvZU_VdgkMmPJXrBQ4rB1AkTXxRIKM="
+            alt=""
+          />
+          <div class="describtion">
+            <p>
+              According to an update from MEC for Finance and Economic
+              Development Lebogang Maile on Wednesday, over 1 000 applications
+              for spaza shop registration in Gauteng have been put on hold due
+              to incomplete or missing critical supporting documents.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+`;
+
   listArticles.forEach((articel) => {
-    const { source } = articel;
-    console.log(source);
+    const { source, author, title, description, url, urlToImage } = articel;
+    const { id, name } = source;
+    main.innerHTML += /*html*/ `
+    <div class="Headlines">
+        <div class="Headline-card">
+          <p>
+            According to an update from MEC for Finance and Economic Development
+            Lebogang M
+          </p>
+          <img
+            src="https://media.coschedule.com/uploads/2021/04/34b6a943-ce73-4780-836e-89acf7db9529_14mission-a1.ready-articleLarge-v3.jpg?w=3840&q=75"
+            alt=""
+          />
+        </div>
+        <div class="Headline-card">
+          <p>
+            According to an update from MEC for Finance and Economic Development
+            Lebogang M
+          </p>
+          <img
+            src="https://media.coschedule.com/uploads/2021/04/34b6a943-ce73-4780-836e-89acf7db9529_14mission-a1.ready-articleLarge-v3.jpg?w=3840&q=75"
+            alt=""
+          />
+        </div>
+      </div>
+    
+    
+    `;
   });
 }
