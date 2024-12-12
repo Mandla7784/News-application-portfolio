@@ -1,7 +1,5 @@
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const url_base_path =
-  "https://newsapi.org/v2/top-headlines?country=us&apiKey=8f0e4148f524405c9aebb149ee25bed2";
 const main = document.querySelector("main");
+const url = "./netlify/functions/server.js";
 
 /**
  * This function makes an HTTP request for news data
@@ -9,7 +7,7 @@ const main = document.querySelector("main");
  * @returns {object} data
  */
 function getAllNewsArticles(path) {
-  fetch(proxyUrl + path)
+  fetch(path)
     .then((response) => {
       // Check if response is ok (status 200-299)
       if (!response.ok) {
@@ -31,7 +29,7 @@ function getAllNewsArticles(path) {
     });
 }
 
-getAllNewsArticles(url_base_path);
+getAllNewsArticles(url);
 
 /**
  * This function takes a list of articles and loops through them
