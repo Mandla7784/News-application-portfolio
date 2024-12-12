@@ -7,6 +7,11 @@
 :root {
   --main_color: hsl(214, 100%, 41%);
 }
+
+body {
+  background-color: hsl(220, 15%, 16%);
+  color: white;
+}
 .navbar {
   background-color: var(--main_color);
   height: 80px;
@@ -68,9 +73,10 @@ main .news {
   width: 500px;
   height: 100px;
   display: flex;
-  background-color: white;
+  background-color: hsl(222, 14%, 32%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 0.5em 1em;
+  color: white;
 }
 
 .Headline-card img {

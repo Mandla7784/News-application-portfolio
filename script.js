@@ -21,6 +21,13 @@ async function getAllNewsArticles(path) {
 
 getAllNewsArticles(url_base_path);
 
+/**
+ *
+ * @param {*} listArticles
+ * this function takes a list of articles and loop through
+ * for each article it excracts the properties to be used for manipultation..
+ * makes use of innerHtml to render the data
+ */
 function excraction(listArticles) {
   const heroArtilce = listArticles[0];
   const { source, author, title, description, url, urlToImage } = heroArtilce;
