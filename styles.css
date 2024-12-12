@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main_color: hsl(214, 100%, 41%);
+}
+.navbar {
+  background-color: var(--main_color);
+  height: 80px;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 0 0.5em;
+}
+.navbar ul {
+  display: flex;
+  gap: 40px;
+}
