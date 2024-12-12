@@ -20,3 +20,39 @@
   display: flex;
   gap: 40px;
 }
+
+.navbar ul a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.subscribe {
+  background-color: rgb(223, 74, 74);
+  padding: 10px 20px;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+/* main */
+main {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  padding: 0.5em 4em;
+  width: 100%;
+  height: 100vh;
+}
+main .news {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+.news-content {
+  display: flex;
+}
+
+.describtion {
+  width: 400px;
+  background-color: black;
+}
