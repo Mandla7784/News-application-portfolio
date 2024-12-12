@@ -18,6 +18,7 @@ async function getAllNewsArticles(path) {
     })
     .catch((erro) => console.log(erro));
 }
+// Updates
 
 getAllNewsArticles(url_base_path);
 
