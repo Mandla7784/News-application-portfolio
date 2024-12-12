@@ -13,7 +13,6 @@ async function getAllNewsArticles(path) {
   fetch(path)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const { articles } = data;
       excraction(articles);
     })
@@ -23,6 +22,9 @@ async function getAllNewsArticles(path) {
 getAllNewsArticles(url_base_path);
 
 function excraction(listArticles) {
+  const heroArtilce = listArticles[0];
+  const { source, author, title, description, url, urlToImage } = heroArtilce;
+
   main.innerHTML += /*html*/ `
 
    <div class="news">
@@ -30,16 +32,14 @@ function excraction(listArticles) {
         <div class="news-content">
           <img
             style="width: 500px; height: 400px"
-            src="https://media.istockphoto.com/id/1369150014/vector/breaking-news-with-world-map-background-vector.jpg?s=612x612&w=0&k=20&c=9pR2-nDBhb7cOvvZU_VdgkMmPJXrBQ4rB1AkTXxRIKM="
+             src =${urlToImage}
             alt=""
           />
           <div class="describtion">
             <p>
-              According to an update from MEC for Finance and Economic
-              Development Lebogang Maile on Wednesday, over 1 000 applications
-              for spaza shop registration in Gauteng have been put on hold due
-              to incomplete or missing critical supporting documents.
+               ${description}
             </p>
+            <h3>Author: ${author}</h3>
           </div>
         </div>
       </div>
