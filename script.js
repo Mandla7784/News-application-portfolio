@@ -40,14 +40,14 @@ getAllNewsArticles(url_base_path);
  * @param {*} listArticles
  */
 function extraction(listArticles) {
-  const heroArticle = listArticles[0];
+  const heroArticle = listArticles[2];
   const { source, author, title, description, url, urlToImage } = heroArticle;
-
+  console.log(heroArticle);
   main.innerHTML += /*html*/ `
     <div class="news">
       <h1>${title}</h1>
       <div class="news-content">
-        <img style="width: 500px; height: 400px" src="${urlToImage}" alt="" />
+        <img  src="${urlToImage}" style="width: 500px; height: 400px" alt="" />
         <div class="description">
           <p>${description}</p>
           <h3>Author: ${author}</h3>
