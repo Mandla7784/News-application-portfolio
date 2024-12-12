@@ -1,81 +1,72 @@
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const url_base_path =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=8f0e4148f524405c9aebb149ee25bed2";
 const main = document.querySelector("main");
+
 /**
- *
+ * This function makes an HTTP request for news data
  * @param {*} path
- * this function makes an http request for news data
  * @returns {object} data
- * so here we have a list of articles
- * each article is an object with source and other props
  */
-async function getAllNewsArticles(path) {
-  fetch(path)
-    .then((response) => response.json())
-    .then((data) => {
-      const { articles } = data;
-      excraction(articles);
+function getAllNewsArticles(path) {
+  fetch(proxyUrl + path)
+    .then((response) => {
+      // Check if response is ok (status 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
     })
-    .catch((erro) => console.log(erro));
+    .then((data) => {
+      // Check if articles exist in the data
+      if (!data.articles) {
+        throw new Error("No articles found in the response.");
+      }
+      const { articles } = data;
+      extraction(articles);
+    })
+    .catch((error) => {
+      // Log any errors that occur
+      console.error("Error fetching news data:", error);
+    });
 }
-//
 
 getAllNewsArticles(url_base_path);
 
 /**
- *
+ * This function takes a list of articles and loops through them
+ * for each article, it extracts the properties to be used for manipulation
+ * It uses innerHTML to render the data
  * @param {*} listArticles
- * this function takes a list of articles and loop through
- * for each article it excracts the properties to be used for manipultation..
- * makes use of innerHtml to render the data
  */
-function excraction(listArticles) {
-  const heroArtilce = listArticles[0];
-  const { source, author, title, description, url, urlToImage } = heroArtilce;
+function extraction(listArticles) {
+  const heroArticle = listArticles[0];
+  const { source, author, title, description, url, urlToImage } = heroArticle;
 
   main.innerHTML += /*html*/ `
-
-   <div class="news">
-        <h1>${title}</h1>
-        <div class="news-content">
-          <img
-            style="width: 500px; height: 400px"
-             src =${urlToImage}
-            alt=""
-          />
-          <div class="describtion">
-            <p>
-               ${description}
-            </p>
-            <h3>Author: ${author}</h3>
-            <p>
-               Source:${source.name}
-            </p>
-          </div>
+    <div class="news">
+      <h1>${title}</h1>
+      <div class="news-content">
+        <img style="width: 500px; height: 400px" src="${urlToImage}" alt="" />
+        <div class="description">
+          <p>${description}</p>
+          <h3>Author: ${author}</h3>
+          <p>Source: ${source.name}</p>
         </div>
       </div>
-
-
-`;
-
-  listArticles.forEach((articel) => {
-    const { source, author, title, description, url, urlToImage } = articel;
-    const { id, name } = source;
-    main.innerHTML += /*html*/ `
-    <div class="Headlines">
-        <div class="Headline-card">
-          <p>
-            ${description}
-          </p>
-          <img
-             src = ${urlToImage}
-            alt=${description}
-          />
-        </div>
-
     </div>
-    
-    
+  `;
+
+  listArticles.forEach((article) => {
+    const { source, author, title, description, url, urlToImage } = article;
+
+    main.innerHTML += /*html*/ `
+      <div class="Headlines">
+        <div class="Headline-card">
+          <p>${description}</p>
+          <img src="${urlToImage}" alt="${description}" />
+        </div>
+      </div>
     `;
   });
 }
