@@ -28,7 +28,7 @@ function excraction(listArticles) {
   main.innerHTML += /*html*/ `
 
    <div class="news">
-        <h1>Watch over 1000 of these news</h1>
+        <h1>${title}</h1>
         <div class="news-content">
           <img
             style="width: 500px; height: 400px"
@@ -40,6 +40,9 @@ function excraction(listArticles) {
                ${description}
             </p>
             <h3>Author: ${author}</h3>
+            <p>
+               Source:${source.name}
+            </p>
           </div>
         </div>
       </div>
