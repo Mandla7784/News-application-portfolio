@@ -1,5 +1,5 @@
 const url_base_path =
-  "https://newsapi.org/v2/top-headlines?country=us&apiKey=8f0e4148f524405c9aebb149ee25bed2";
+  "https://api.allorigins.win/raw?url=https://newsapi.org/v2/top-headlines?country=us&apiKey=8f0e4148f524405c9aebb149ee25bed2";
 const main = document.querySelector("main");
 /**
  *
@@ -18,7 +18,7 @@ async function getAllNewsArticles(path) {
     })
     .catch((erro) => console.log(erro));
 }
-// Updates
+//
 
 getAllNewsArticles(url_base_path);
 
